@@ -29,15 +29,26 @@ while True:
     if len(line) == 0: break;
     else:
         outcolor = COLOR.WHITE
-        if line[0] == 'E':
+
+        strArr = line.split()
+
+        if (line[0].isalpha()):
+            level = line[0]
+        elif len(strArr) >= 5:
+            level = strArr[4]
+        else:
+            print outcolor + line + COLOR.ENDC
+            continue;
+
+        if level == 'E':
             outcolor = COLOR.RED
-        elif line[0] == 'D':
+        elif level == 'D':
             outcolor = COLOR.BLUE
-        elif line[0] == 'V':
+        elif level == 'V':
             outcolor = COLOR.WHITE
-        elif line[0] == 'W':
+        elif level == 'W':
             outcolor = COLOR.YELLOW
-        elif line[0] == 'I':
+        elif level == 'I':
             outcolor = COLOR.GREEN
         line = line.strip()        
         print outcolor + line + COLOR.ENDC
